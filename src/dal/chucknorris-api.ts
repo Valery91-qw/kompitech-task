@@ -8,7 +8,7 @@ export const chucknorrisApi = {
 
 
 
-type RandomJokeType = {
+export type RandomJokeType = {
     categories: Array<string>,
     created_at: Date,
     icon_url: string
