@@ -1,28 +1,33 @@
 import {useEffect, useState} from "react";
-import {chucknorrisApi, RandomJokeType} from "../../dal/chucknorris-api";
+import {chucknorrisApi, JokeType} from "../../dal/chucknorris-api";
 import styles from './Header.module.css'
 
-export const Header = () => {
+type HeaderType = {
+    currentJoke: JokeType | undefined
+}
 
-    const [randomJokeData, setRandomJokeData] = useState<RandomJokeType>()
+export const Header = ({currentJoke}: HeaderType) => {
+
+    const [jokeData, setJokeData] = useState<JokeType>()
 
     useEffect(() => {
-        chucknorrisApi.getRandomJoke()
-            .then(res => {
-                if(res) setRandomJokeData(res);
-            })
-    }, [])
+        if(currentJoke) {
+            setJokeData(currentJoke)
+        } else  {
+            chucknorrisApi.getJoke()
+                .then(res => {
+                    if(res) setJokeData(res);
+                })
+        }
+    }, [currentJoke])
 
     return (
         <header className={styles.container}>
             <img className={styles.logo}
                  src={`https://api.chucknorris.io/img/chucknorris_logo_coloured_small@2x.png`}
-                 alt='chack-logo'
-            />
+                 alt='chack-logo' />
             <h2 className={styles.title}>Joke: </h2>
-            <p className={styles.text}>
-                {randomJokeData?.value}
-            </p>
+            <p className={styles.text}>{jokeData?.value}</p>
         </header>
     )
 }

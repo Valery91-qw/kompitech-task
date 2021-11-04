@@ -1,8 +1,11 @@
 import axios from 'axios';
 
 export const chucknorrisApi = {
-    getRandomJoke() {
-       return axios.get<RandomJokeType>(`https://api.chucknorris.io/jokes/random`)
+    getJoke(category?: string) {
+       return axios.get<JokeType>(`https://api.chucknorris.io/jokes/random`, {
+           params: {
+               category: category,
+           }})
             .then(result => {
                 return result.data
             })
@@ -21,7 +24,7 @@ export const chucknorrisApi = {
 
 
 
-export type RandomJokeType = {
+export type JokeType = {
     categories: Array<string>,
     created_at: Date,
     icon_url: string

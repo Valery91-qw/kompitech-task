@@ -1,31 +1,34 @@
-import {useEffect, useState} from "react";
+import {ChangeEvent, useEffect, useState} from "react";
 import {chucknorrisApi} from "../../dal/chucknorris-api";
+import styles from './JokeCategories.module.css';
 
-export const JokeCategories = () => {
+type JokeCategoriesType = {
+    setCurrentCategory: (category: string) => void
+}
 
-    const [categories, setCategories] = useState<Array<string>>()
+export const JokeCategories = ({ setCurrentCategory } : JokeCategoriesType) => {
+
+    const [categories, setCategories] = useState<Array<string>>();
 
     useEffect(() => {
         chucknorrisApi.getCategories()
             .then(result => {
-                if(result) {
+                if (result) {
                     const allCategories = ['random', ...result]
                     setCategories(allCategories)
                 }
             })
-    }, [])
+    }, []);
+
+    function setCategory(event: ChangeEvent<HTMLSelectElement>) {
+        setCurrentCategory(event.currentTarget.value)
+    }
 
     return (
-        <>
-            <select>
-                {categories?.map((category) => {
-                    if(category === 'random') {
-                        return <option key={category} selected>{category}</option>
-                    } else {
-                        return <option key={category}>{category}</option>
-                    }
-                })}
-            </select>
-        </>
-    )
-}
+        <select onChange={setCategory} className={styles.select} defaultValue={categories?.find((el) => el === 'random')}>
+            {categories?.map((category) => {
+                return <option className={styles.option} key={category}>{category}</option>
+            })}
+        </select>
+    );
+};
