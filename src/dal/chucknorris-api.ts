@@ -2,7 +2,13 @@ import axios from 'axios';
 
 export const chucknorrisApi = {
     getRandomJoke() {
-        return axios.get<RandomJokeType>(`https://api.chucknorris.io/jokes/random`)
+       return axios.get<RandomJokeType>(`https://api.chucknorris.io/jokes/random`)
+            .then(result => {
+                return result.data
+            })
+            .catch(err => {
+                console.error(err)
+            })
     }
 }
 
