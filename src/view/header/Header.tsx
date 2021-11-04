@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {chucknorrisApi, RandomJokeType} from "../dal/chucknorris-api";
+import {chucknorrisApi, RandomJokeType} from "../../dal/chucknorris-api";
 import styles from './Header.module.css'
 
 export const Header = () => {
@@ -19,6 +19,7 @@ export const Header = () => {
                  src={`https://api.chucknorris.io/img/chucknorris_logo_coloured_small@2x.png`}
                  alt='chack-logo'
             />
+            <h2 className={styles.title}>Joke: </h2>
             <p className={styles.text}>
                 {randomJokeData?.value}
             </p>

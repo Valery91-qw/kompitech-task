@@ -9,6 +9,13 @@ export const chucknorrisApi = {
             .catch(err => {
                 console.error(err)
             })
+    },
+    getCategories() {
+        return axios.get<Array<string>>(`https://api.chucknorris.io/jokes/categories`)
+            .then(result => result.data)
+            .catch(err => {
+                console.error(err)
+            })
     }
 }
 

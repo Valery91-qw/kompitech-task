@@ -10,8 +10,11 @@
     width: 300px;
     height: 150px;
 }
-
+.title {
+    margin: 15px 0;
+}
 .text {
-    margin-top: 25px;
-    font-size: 24px;
+    max-width: 50%;
+    font-size: 22px;
+    line-height: 32px;
 }

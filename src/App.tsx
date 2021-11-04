@@ -1,12 +1,13 @@
 import React from 'react';
-import {Header} from "./view/Header";
-import styles from './App.module.css';
+import {Header} from "./view/header/Header";
+import {JokeCategories} from "./view/joke-categories/JokeCategories";
 
 function App() {
 
     return (
-        <div className={styles.container}>
+        <div>
             <Header />
+            <JokeCategories />
         </div>
     );
 }
