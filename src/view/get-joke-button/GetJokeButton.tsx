@@ -14,10 +14,11 @@ export const GetJokeButton = ({currentCategory, setJokeData}: GetJokeButtonType)
             chucknorrisApi.getJoke().then(result => {
                 if (result) setJokeData(result)
             })
+        } else {
+            chucknorrisApi.getJoke(currentCategory).then(result => {
+                if (result) setJokeData(result)
+            })
         }
-        chucknorrisApi.getJoke(currentCategory).then(result => {
-            if (result) setJokeData(result)
-        })
     }
 
     return (
