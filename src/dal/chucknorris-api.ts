@@ -23,6 +23,17 @@ export const chucknorrisApi = {
             .catch(err => {
                 console.error(err)
             })
+    },
+    getJokeByText(text: string) {
+        return instance.get<JokeByTextType<JokeType>>(`search`, {
+            params: {
+                query: text
+            }
+        })
+            .then(result => result.data)
+            .catch(err => {
+                console.error(err)
+            })
     }
 }
 
@@ -36,4 +47,9 @@ export type JokeType = {
     updated_at: Date
     url: string
     value: string
+}
+
+export type JokeByTextType<J> = {
+    total: number
+    result: Array<J>
 }
