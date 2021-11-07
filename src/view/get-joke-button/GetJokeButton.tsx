@@ -22,6 +22,6 @@ export const GetJokeButton = ({currentCategory, setJokeData}: GetJokeButtonType)
     }
 
     return (
-        <button className={styles.getJokeButton} onClick={fetchJoke}>Get Joke</button>
+        <button className={styles.button} onClick={fetchJoke}>Get Joke</button>
     )
 }
