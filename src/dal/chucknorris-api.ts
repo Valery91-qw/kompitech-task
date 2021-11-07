@@ -1,8 +1,12 @@
 import axios from 'axios';
 
+const instance = axios.create({
+    baseURL: 'https://api.chucknorris.io/jokes/'
+})
+
 export const chucknorrisApi = {
     getJoke(category?: string) {
-       return axios.get<JokeType>(`https://api.chucknorris.io/jokes/random`, {
+       return instance.get<JokeType>(`random`, {
            params: {
                category: category,
            }})
@@ -14,7 +18,7 @@ export const chucknorrisApi = {
             })
     },
     getCategories() {
-        return axios.get<Array<string>>(`https://api.chucknorris.io/jokes/categories`)
+        return instance.get<Array<string>>(`categories`)
             .then(result => result.data)
             .catch(err => {
                 console.error(err)

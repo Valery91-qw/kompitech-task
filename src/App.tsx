@@ -26,7 +26,7 @@ function App() {
 
     return (
         <div className={styles.container}>
-            <Header jokeData={jokeData} setJokeData={setJokeData}/>
+            <Header jokeData={jokeData} />
             <JokeCategories setCurrentCategory={setCurrentCategory}/>
             <GetJokeButton currentCategory={currentCategory} setJokeData={setJokeData}/>
         </div>

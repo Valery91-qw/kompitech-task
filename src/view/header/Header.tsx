@@ -1,20 +1,12 @@
 import styles from "./Header.module.css";
-import React, {useEffect} from "react";
-import {chucknorrisApi, JokeType} from "../../dal/chucknorris-api";
+import React from "react";
+import {JokeType} from "../../dal/chucknorris-api";
 
 type HeaderType = {
     jokeData: JokeType | undefined
-    setJokeData: (joke: JokeType) => void
 }
 
-export const Header = ({jokeData, setJokeData}: HeaderType) => {
-
-    useEffect(() => {
-        chucknorrisApi.getJoke()
-            .then(res => {
-                if (res) setJokeData(res);
-            })
-    }, [setJokeData])
+export const Header = ({jokeData}: HeaderType) => {
 
     return (
         <>
