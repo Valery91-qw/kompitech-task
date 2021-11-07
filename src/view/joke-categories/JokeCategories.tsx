@@ -1,6 +1,6 @@
 import {ChangeEvent, useEffect, useState} from "react";
 import {chucknorrisApi} from "../../dal/chucknorris-api";
-import styles from './JokeCategories.module.css';
+import styles from "./JokeCategories.module.css";
 
 type JokeCategoriesType = {
     setCurrentCategory: (category: string) => void

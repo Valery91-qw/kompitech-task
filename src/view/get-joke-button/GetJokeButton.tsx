@@ -1,4 +1,4 @@
-import styles from './GetJokeButton.module.css';
+import styles from "./GetJokeButton.module.css";
 import React from "react";
 import {chucknorrisApi, JokeType} from "../../dal/chucknorris-api";
 

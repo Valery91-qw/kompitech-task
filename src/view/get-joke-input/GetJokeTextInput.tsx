@@ -12,7 +12,6 @@ export const GetJokeTextInput = ({ setJokesByText }: GetJokeTextInputType) => {
     const [fetchJokeValue, setFetchJokeValue] = useState<string>()
 
     const setSearchValue = (event: ChangeEvent<HTMLInputElement>) => {
-        console.log(event.currentTarget.value)
         setFetchJokeValue(event.currentTarget.value)
     }
 

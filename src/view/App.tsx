@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState} from "react";
 import {JokeCategories} from "./joke-categories/JokeCategories";
-import styles from './App.module.css';
+import styles from "./App.module.css";
 import {chucknorrisApi, JokeType} from "../dal/chucknorris-api";
 import {GetJokeButton} from "./get-joke-button/GetJokeButton";
 import {Header} from "./header/Header";

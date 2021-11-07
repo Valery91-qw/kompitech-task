@@ -5,6 +5,7 @@ const instance = axios.create({
 })
 
 export const chucknorrisApi = {
+
     getJoke(category?: string) {
        return instance.get<JokeType>(`random`, {
            params: {
@@ -17,6 +18,7 @@ export const chucknorrisApi = {
                 console.error(err)
             })
     },
+
     getCategories() {
         return instance.get<Array<string>>(`categories`)
             .then(result => result.data)
@@ -24,6 +26,7 @@ export const chucknorrisApi = {
                 console.error(err)
             })
     },
+
     getJokeByText(text: string) {
         return instance.get<JokeByTextType<JokeType>>(`search`, {
             params: {
@@ -36,8 +39,6 @@ export const chucknorrisApi = {
             })
     }
 }
-
-
 
 export type JokeType = {
     categories: Array<string>,
