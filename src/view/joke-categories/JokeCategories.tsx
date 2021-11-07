@@ -20,7 +20,7 @@ export const JokeCategories = ({setCurrentCategory}: JokeCategoriesType) => {
             })
     }, []);
 
-    function setCategory(event: ChangeEvent<HTMLSelectElement>) {
+    const setCategory = (event: ChangeEvent<HTMLSelectElement>) => {
         setCurrentCategory(event.currentTarget.value)
     }
 
