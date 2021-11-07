@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/kompitech-task/static/css/main.8ceb709d.chunk.css",
+    "main.js": "/kompitech-task/static/js/main.7c619dab.chunk.js",
+    "main.js.map": "/kompitech-task/static/js/main.7c619dab.chunk.js.map",
+    "runtime-main.js": "/kompitech-task/static/js/runtime-main.0cca7f0b.js",
+    "runtime-main.js.map": "/kompitech-task/static/js/runtime-main.0cca7f0b.js.map",
+    "static/js/2.639528cc.chunk.js": "/kompitech-task/static/js/2.639528cc.chunk.js",
+    "static/js/2.639528cc.chunk.js.map": "/kompitech-task/static/js/2.639528cc.chunk.js.map",
+    "static/js/3.446069d9.chunk.js": "/kompitech-task/static/js/3.446069d9.chunk.js",
+    "static/js/3.446069d9.chunk.js.map": "/kompitech-task/static/js/3.446069d9.chunk.js.map",
+    "index.html": "/kompitech-task/index.html",
+    "static/css/main.8ceb709d.chunk.css.map": "/kompitech-task/static/css/main.8ceb709d.chunk.css.map",
+    "static/js/2.639528cc.chunk.js.LICENSE.txt": "/kompitech-task/static/js/2.639528cc.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0cca7f0b.js",
+    "static/js/2.639528cc.chunk.js",
+    "static/css/main.8ceb709d.chunk.css",
+    "static/js/main.7c619dab.chunk.js"
+  ]
+}
