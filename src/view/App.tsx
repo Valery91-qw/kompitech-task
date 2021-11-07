@@ -14,26 +14,26 @@ function App() {
     const [jokesByText, setJokesByText] = useState<Array<JokeType>>()
 
     useEffect(() => {
-        if(currentCategory === '' || currentCategory === 'random') {
+        if (currentCategory === '' || currentCategory === 'random') {
             chucknorrisApi.getJoke()
                 .then(res => {
-                    if(res) setJokeData(res)
+                    if (res) setJokeData(res)
                 })
         } else {
             chucknorrisApi.getJoke(currentCategory)
                 .then(res => {
-                    if(res) setJokeData(res)
+                    if (res) setJokeData(res)
                 })
         }
     }, [currentCategory])
 
     return (
         <div className={styles.container}>
-            <Header jokeData={jokeData} />
+            <Header jokeData={jokeData}/>
             <JokeCategories setCurrentCategory={setCurrentCategory}/>
             <GetJokeButton currentCategory={currentCategory} setJokeData={setJokeData}/>
             <GetJokeTextInput setJokesByText={setJokesByText}/>
-            <DisplayJokesArea jokesByText={jokesByText} />
+            <DisplayJokesArea jokesByText={jokesByText}/>
         </div>
     );
 }

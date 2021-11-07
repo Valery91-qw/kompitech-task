@@ -7,10 +7,11 @@ const instance = axios.create({
 export const chucknorrisApi = {
 
     getJoke(category?: string) {
-       return instance.get<JokeType>(`random`, {
-           params: {
-               category: category,
-           }})
+        return instance.get<JokeType>(`random`, {
+            params: {
+                category: category,
+            }
+        })
             .then(result => {
                 return result.data
             })

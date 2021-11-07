@@ -7,7 +7,7 @@ type GetJokeTextInputType = {
 }
 
 
-export const GetJokeTextInput = ({ setJokesByText }: GetJokeTextInputType) => {
+export const GetJokeTextInput = ({setJokesByText}: GetJokeTextInputType) => {
 
     const [fetchJokeValue, setFetchJokeValue] = useState<string>()
 
@@ -16,11 +16,11 @@ export const GetJokeTextInput = ({ setJokesByText }: GetJokeTextInputType) => {
     }
 
     useEffect(() => {
-        if(fetchJokeValue && fetchJokeValue.length > 2) {
+        if (fetchJokeValue && fetchJokeValue.length > 2) {
             const timerId = setTimeout(() => {
                 chucknorrisApi.getJokeByText(fetchJokeValue)
                     .then((res) => {
-                        if(res) setJokesByText(res.result)
+                        if (res) setJokesByText(res.result)
                     })
             }, 600)
             return () => {
