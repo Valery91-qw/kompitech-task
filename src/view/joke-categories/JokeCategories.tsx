@@ -6,7 +6,7 @@ type JokeCategoriesType = {
     setCurrentCategory: (category: string) => void
 }
 
-export const JokeCategories = ({ setCurrentCategory } : JokeCategoriesType) => {
+export const JokeCategories = ({setCurrentCategory}: JokeCategoriesType) => {
 
     const [categories, setCategories] = useState<Array<string>>();
 
@@ -25,10 +25,14 @@ export const JokeCategories = ({ setCurrentCategory } : JokeCategoriesType) => {
     }
 
     return (
-        <select onChange={setCategory} className={styles.select} defaultValue={categories?.find((el) => el === 'random')}>
+        <select onChange={setCategory}
+                className={styles.select}
+                defaultValue={categories?.find((el) => el === 'random')}>
+
             {categories?.map((category) => {
                 return <option className={styles.option} key={category}>{category}</option>
             })}
+
         </select>
     );
 };

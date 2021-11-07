@@ -1,30 +1,30 @@
-import React, {useState} from 'react';
-import {Header} from "./view/header/Header";
+import React, {useEffect, useState} from 'react';
 import {JokeCategories} from "./view/joke-categories/JokeCategories";
 import styles from './App.module.css';
 import {chucknorrisApi, JokeType} from "./dal/chucknorris-api";
+import {GetJokeButton} from "./view/get-joke-button/GetJokeButton";
 
 function App() {
 
     const [currentCategory, setCurrentCategory] = useState<string>('')
-    const [currentJoke, setCurrentJoke] = useState<JokeType>()
+    const [jokeData, setJokeData] = useState<JokeType>()
 
-    const fetchJoke = () => {
-        if(currentCategory === 'random' || currentCategory === '') {
-            chucknorrisApi.getJoke().then(result => {
-                if(result) setCurrentJoke(result)
+    useEffect(() => {
+        chucknorrisApi.getJoke()
+            .then(res => {
+                if (res) setJokeData(res);
             })
-        }
-        chucknorrisApi.getJoke(currentCategory).then(result => {
-            if(result) setCurrentJoke(result)
-        })
-    }
+    }, [])
 
     return (
         <div className={styles.container}>
-            <Header currentJoke={currentJoke}/>
-            <JokeCategories setCurrentCategory={setCurrentCategory} />
-            <button className={styles.getJokeButton} onClick={fetchJoke}>Get Joke</button>
+            <img className={styles.logo}
+                 src={`https://api.chucknorris.io/img/chucknorris_logo_coloured_small@2x.png`}
+                 alt='chack-logo'/>
+            <h2 className={styles.title}>Joke:</h2>
+            <p className={styles.text}>{jokeData?.value}</p>
+            <JokeCategories setCurrentCategory={setCurrentCategory}/>
+            <GetJokeButton currentCategory={currentCategory} setJokeData={setJokeData}/>
         </div>
     );
 }
